@@ -7,11 +7,18 @@
     <meta name="description" content="Manufaktura Drewna & Usługi CNC — lokalna pracownia stolarska oferująca projektowanie 3D, precyzyjną obróbkę CNC oraz indywidualne realizacje drewniane." />
     
     <!-- Favicon -->
-    <link rel="icon" type="image/jpeg" href="/logo.jpg" />
+    <link rel="icon" type="image/jpeg" href="https://i.postimg.cc/wBnf9mF6/725860890-122110777725345430-1406477013983970049-n.jpg" />
+    <link rel="shortcut icon" href="https://i.postimg.cc/wBnf9mF6/725860890-122110777725345430-1406477013983970049-n.jpg" />
 
-    <!-- Google Fonts -->
+    <!-- Performance Preloads & Preconnects -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="image" href="/logo-small.webp" type="image/webp" />
+    <link rel="preload" as="image" href="/hero.webp" type="image/webp" />
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
     <style>
@@ -48,13 +55,14 @@
         color: var(--color-muted);
         min-height: 100vh;
         overflow-x: hidden;
+        -webkit-tap-highlight-color: transparent;
 
-        /* Pure CSS Wood Grain & Depth Texture Layering */
+        /* Pure CSS Wood Grain & Depth Texture Layering (Scroll attachment for smooth mobile rendering) */
         background-image: 
           radial-gradient(ellipse at 15% 0%, rgba(184, 138, 82, 0.06) 0%, transparent 60%),
           radial-gradient(ellipse at 85% 100%, rgba(59, 41, 28, 0.35) 0%, transparent 70%),
           linear-gradient(135deg, rgba(184, 138, 82, 0.03) 0%, transparent 40%, rgba(42, 29, 20, 0.3) 100%);
-        background-attachment: fixed;
+        background-attachment: scroll;
       }
 
       /* TYPOGRAPHY */
@@ -315,13 +323,20 @@
         justify-content: center;
         background-image: 
           linear-gradient(to bottom, rgba(23, 18, 13, 0.65), rgba(23, 18, 13, 0.85)),
-          url('/hero.jpg'),
+          url('/hero.webp'),
+          url('/hero-opt.jpg'),
           url('https://i.postimg.cc/52Nkg1jg/723600091-122110348713345430-8691816707543564667-n.jpg');
         background-position: center;
         background-size: cover;
         text-align: center;
         padding: 100px 24px;
         border-bottom: 1px solid var(--border-oak);
+      }
+
+      /* PERFORMANCE OPTIMIZATIONS FOR BELOW-THE-FOLD SECTIONS */
+      .section-about, .section-services, .section-tech, .section-contact, .footer {
+        content-visibility: auto;
+        contain-intrinsic-size: 1px 700px;
       }
 
       .hero-content {
@@ -651,6 +666,12 @@
       }
 
       @media (max-width: 900px) {
+        .navbar {
+          backdrop-filter: none;
+          -webkit-backdrop-filter: none;
+          background-color: rgba(23, 18, 13, 0.98);
+        }
+
         .hamburger-btn {
           display: flex;
         }
@@ -664,12 +685,14 @@
           border-bottom: 1px solid var(--border-oak);
           flex-direction: column;
           align-items: center;
-          padding: 0;
+          padding: 12px 0 20px 0;
           gap: 0;
-          max-height: 0;
-          overflow: hidden;
+          visibility: hidden;
           opacity: 0;
-          transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.3s ease;
+          transform: translateY(-8px);
+          transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease, visibility 0.25s ease;
+          pointer-events: none;
+          will-change: transform, opacity;
         }
 
         .nav-item {
@@ -680,13 +703,15 @@
         }
 
         .nav-cta {
-          margin: 16px 0 24px 0;
+          margin: 16px 0 8px 0;
           width: 80%;
         }
 
         .nav-toggle:checked ~ .nav-menu {
-          max-height: 400px;
+          visibility: visible;
           opacity: 1;
+          transform: translateY(0);
+          pointer-events: auto;
         }
 
         .nav-toggle:checked ~ .hamburger-btn span:nth-child(1) {
@@ -721,6 +746,11 @@
         .btn {
           width: 100%;
         }
+
+        .feature-card, .service-card, .contact-card {
+          transform: translateZ(0);
+          box-shadow: none;
+        }
       }
 
       @media (max-width: 480px) {
@@ -741,7 +771,10 @@
     <header class="navbar">
       <div class="nav-container">
         <a href="#" class="brand-link">
-          <img src="/logo.jpg" alt="Manufaktura Drewna Logo" class="brand-logo" width="38" height="38" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='https://i.postimg.cc/wBnf9mF6/725860890-122110777725345430-1406477013983970049-n.jpg';" />
+          <picture>
+            <source srcset="/logo-small.webp" type="image/webp" />
+            <img src="/logo-small.jpg" alt="Manufaktura Drewna Logo" class="brand-logo" width="38" height="38" fetchpriority="high" decoding="async" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='https://i.postimg.cc/wBnf9mF6/725860890-122110777725345430-1406477013983970049-n.jpg';" />
+          </picture>
           <span class="brand-name">MANUFAKTURA DREWNA</span>
         </a>
 
@@ -992,7 +1025,10 @@
     <!-- FOOTER -->
     <footer class="footer">
       <div class="container">
-        <img src="/logo.jpg" alt="Manufaktura Drewna Logo" class="footer-logo" width="44" height="44" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='https://i.postimg.cc/wBnf9mF6/725860890-122110777725345430-1406477013983970049-n.jpg';" />
+        <picture>
+          <source srcset="/logo-small.webp" type="image/webp" />
+          <img src="/logo-small.jpg" alt="Manufaktura Drewna Logo" class="footer-logo" width="44" height="44" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='https://i.postimg.cc/wBnf9mF6/725860890-122110777725345430-1406477013983970049-n.jpg';" />
+        </picture>
         
         <div class="footer-brand">Manufaktura Drewna & Usługi CNC</div>
         <p class="footer-slogan">Połączenie pasji i rzemiosła.</p>
