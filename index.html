@@ -239,12 +239,28 @@
         text-decoration: none;
       }
 
+      .brand-link picture {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        flex-shrink: 0;
+      }
+
       .brand-logo {
         width: 38px;
         height: 38px;
+        min-width: 38px;
+        min-height: 38px;
+        max-width: 38px;
+        max-height: 38px;
         object-fit: cover;
         border-radius: 50%;
         border: 1px solid var(--color-oak);
+        display: block;
+        flex-shrink: 0;
+        aspect-ratio: 1 / 1;
       }
 
       .brand-name {
@@ -600,13 +616,30 @@
         text-align: center;
       }
 
+      .footer picture {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        flex-shrink: 0;
+        margin: 0 auto 16px;
+      }
+
       .footer-logo {
         width: 44px;
         height: 44px;
+        min-width: 44px;
+        min-height: 44px;
+        max-width: 44px;
+        max-height: 44px;
         object-fit: cover;
         border-radius: 50%;
         border: 1px solid var(--color-oak);
-        margin-bottom: 16px;
+        margin: 0 auto 16px;
+        display: block;
+        flex-shrink: 0;
+        aspect-ratio: 1 / 1;
       }
 
       .footer-brand {
@@ -771,10 +804,7 @@
     <header class="navbar">
       <div class="nav-container">
         <a href="#" class="brand-link">
-          <picture>
-            <source srcset="/logo-small.webp" type="image/webp" />
-            <img src="/logo-small.jpg" alt="Manufaktura Drewna Logo" class="brand-logo" width="38" height="38" fetchpriority="high" decoding="async" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='https://i.postimg.cc/wBnf9mF6/725860890-122110777725345430-1406477013983970049-n.jpg';" />
-          </picture>
+          <img src="https://i.postimg.cc/wBnf9mF6/725860890-122110777725345430-1406477013983970049-n.jpg" alt="Manufaktura Drewna Logo" class="brand-logo" width="38" height="38" fetchpriority="high" decoding="async" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='/logo-small.jpg';" />
           <span class="brand-name">MANUFAKTURA DREWNA</span>
         </a>
 
@@ -1025,10 +1055,7 @@
     <!-- FOOTER -->
     <footer class="footer">
       <div class="container">
-        <picture>
-          <source srcset="/logo-small.webp" type="image/webp" />
-          <img src="/logo-small.jpg" alt="Manufaktura Drewna Logo" class="footer-logo" width="44" height="44" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='https://i.postimg.cc/wBnf9mF6/725860890-122110777725345430-1406477013983970049-n.jpg';" />
-        </picture>
+        <img src="https://i.postimg.cc/wBnf9mF6/725860890-122110777725345430-1406477013983970049-n.jpg" alt="Manufaktura Drewna Logo" class="footer-logo" width="44" height="44" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='/logo-small.jpg';" />
         
         <div class="footer-brand">Manufaktura Drewna & Usługi CNC</div>
         <p class="footer-slogan">Połączenie pasji i rzemiosła.</p>
