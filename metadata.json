@@ -1,0 +1,6 @@
+{
+  "name": "Manufaktura Drewna & Usługi CNC",
+  "description": "Lokalna pracownia stolarska oferująca projektowanie 3D, precyzyjną obróbkę CNC oraz indywidualne realizacje drewniane.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

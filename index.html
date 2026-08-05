@@ -1,0 +1,1014 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manufaktura Drewna & Usługi CNC – Precyzyjna Obróbka Drewna</title>
+    <meta name="description" content="Manufaktura Drewna & Usługi CNC — lokalna pracownia stolarska oferująca projektowanie 3D, precyzyjną obróbkę CNC oraz indywidualne realizacje drewniane." />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="/logo.jpg" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+    <style>
+      /* CSS RESET & VARIABLES */
+      *, *::before, *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --bg-deep-wood: #17120D;
+        --bg-dark-walnut: #2A1D14;
+        --bg-wood-surface: #3B291C;
+        --color-oak: #B88A52;
+        --color-beige: #E8D7BE;
+        --color-white: #F8F5EF;
+        --color-muted: #A89A87;
+        --border-oak: rgba(184, 138, 82, 0.25);
+        --border-oak-strong: rgba(184, 138, 82, 0.5);
+      }
+
+      html {
+        scroll-behavior: smooth;
+        background-color: var(--bg-deep-wood);
+        color: var(--color-muted);
+        font-family: 'Inter', sans-serif;
+        font-weight: 300;
+        line-height: 1.8;
+      }
+
+      body {
+        background-color: var(--bg-deep-wood);
+        color: var(--color-muted);
+        min-height: 100vh;
+        overflow-x: hidden;
+
+        /* Pure CSS Wood Grain & Depth Texture Layering */
+        background-image: 
+          radial-gradient(ellipse at 15% 0%, rgba(184, 138, 82, 0.06) 0%, transparent 60%),
+          radial-gradient(ellipse at 85% 100%, rgba(59, 41, 28, 0.35) 0%, transparent 70%),
+          linear-gradient(135deg, rgba(184, 138, 82, 0.03) 0%, transparent 40%, rgba(42, 29, 20, 0.3) 100%);
+        background-attachment: fixed;
+      }
+
+      /* TYPOGRAPHY */
+      h1, h2, h3, .brand-font {
+        font-family: 'Cormorant Garamond', serif;
+      }
+
+      h1 {
+        font-size: clamp(3rem, 8vw, 6rem);
+        font-weight: 300;
+        letter-spacing: 0.04em;
+        line-height: 1.1;
+        color: var(--color-beige);
+        margin-bottom: 16px;
+      }
+
+      h2 {
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 400;
+        letter-spacing: 0.02em;
+        line-height: 1.25;
+        color: var(--color-beige);
+        margin-bottom: 16px;
+      }
+
+      h3 {
+        font-size: 1.5rem;
+        font-weight: 400;
+        color: var(--color-beige);
+        margin-bottom: 12px;
+      }
+
+      p {
+        margin-bottom: 16px;
+        color: var(--color-muted);
+      }
+
+      .section-label {
+        display: block;
+        text-transform: uppercase;
+        letter-spacing: 0.25em;
+        font-size: 0.75rem;
+        color: var(--color-oak);
+        font-weight: 600;
+        margin-bottom: 8px;
+      }
+
+      .gold-text {
+        color: var(--color-oak);
+      }
+
+      /* WOOD DIVIDER */
+      .wood-divider {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        color: var(--color-oak);
+        font-size: 10px;
+        margin: 16px 0 24px 0;
+      }
+
+      .wood-divider span {
+        display: inline-block;
+        width: 40px;
+        height: 1px;
+        background-color: var(--color-oak);
+      }
+
+      /* LAYOUT UTILITIES */
+      .container {
+        width: 100%;
+        max-width: 1240px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      .text-center {
+        text-align: center;
+      }
+
+      section {
+        padding: 100px 0;
+        position: relative;
+      }
+
+      /* BUTTONS */
+      .btn-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        justify-content: center;
+        margin-top: 32px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 14px 28px;
+        font-family: 'Inter', sans-serif;
+        font-size: 0.875rem;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        text-decoration: none;
+        border-radius: 0;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+
+      .btn-oak-outline {
+        border: 1px solid var(--color-oak);
+        color: var(--color-beige);
+        background: transparent;
+      }
+
+      .btn-oak-outline:hover {
+        background-color: var(--color-oak);
+        color: var(--bg-deep-wood);
+        box-shadow: 0 0 20px rgba(184, 138, 82, 0.25);
+      }
+
+      .btn-oak-filled {
+        background-color: var(--color-oak);
+        color: var(--bg-deep-wood);
+        border: 1px solid var(--color-oak);
+        font-weight: 600;
+      }
+
+      .btn-oak-filled:hover {
+        background-color: var(--color-beige);
+        border-color: var(--color-beige);
+        color: var(--bg-deep-wood);
+        box-shadow: 0 0 25px rgba(232, 215, 190, 0.3);
+      }
+
+      .btn-large {
+        padding: 18px 36px;
+        font-size: 0.95rem;
+      }
+
+      /* STICKY NAVIGATION */
+      .navbar {
+        position: sticky;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background-color: rgba(23, 18, 13, 0.95);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border-oak);
+        height: 80px;
+        display: flex;
+        align-items: center;
+      }
+
+      .nav-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 1240px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      .brand-link {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        text-decoration: none;
+      }
+
+      .brand-logo {
+        width: 38px;
+        height: 38px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 1px solid var(--color-oak);
+      }
+
+      .brand-name {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 1.25rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        color: var(--color-beige);
+        text-transform: uppercase;
+      }
+
+      .nav-menu {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+      }
+
+      .nav-item {
+        color: var(--color-muted);
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 400;
+        letter-spacing: 0.05em;
+        transition: color 0.3s ease;
+        position: relative;
+      }
+
+      .nav-item::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0%;
+        height: 1px;
+        background-color: var(--color-oak);
+        transition: width 0.3s ease;
+      }
+
+      .nav-item:hover {
+        color: var(--color-beige);
+      }
+
+      .nav-item:hover::after {
+        width: 100%;
+      }
+
+      /* CSS-ONLY MOBILE MENU TOGGLE */
+      .nav-toggle {
+        display: none;
+      }
+
+      .hamburger-btn {
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 28px;
+        height: 20px;
+        cursor: pointer;
+        z-index: 1001;
+      }
+
+      .hamburger-btn span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: var(--color-beige);
+        transition: all 0.3s ease;
+      }
+
+      /* HERO SECTION */
+      .hero-section {
+        min-height: calc(100vh - 80px);
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image: 
+          linear-gradient(to bottom, rgba(23, 18, 13, 0.65), rgba(23, 18, 13, 0.85)),
+          url('/hero.jpg'),
+          url('https://i.postimg.cc/52Nkg1jg/723600091-122110348713345430-8691816707543564667-n.jpg');
+        background-position: center;
+        background-size: cover;
+        text-align: center;
+        padding: 100px 24px;
+        border-bottom: 1px solid var(--border-oak);
+      }
+
+      .hero-content {
+        max-width: 850px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-subtitle {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+        color: var(--color-beige);
+        font-style: italic;
+        margin-bottom: 20px;
+      }
+
+      .hero-description {
+        font-size: clamp(1rem, 1.5vw, 1.15rem);
+        max-width: 700px;
+        margin: 0 auto 36px;
+        color: var(--color-muted);
+      }
+
+      /* SECTION 4: O NAS */
+      .section-about {
+        background-color: var(--bg-dark-walnut);
+        border-bottom: 1px solid var(--border-oak);
+        position: relative;
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        margin-top: 60px;
+      }
+
+      .feature-card {
+        background-color: var(--bg-deep-wood);
+        border: 1px solid var(--border-oak);
+        padding: 40px 32px;
+        border-radius: 0;
+        transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-6px);
+        border-color: var(--border-oak-strong);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+      }
+
+      .card-icon {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 24px;
+        color: var(--color-oak);
+      }
+
+      .feature-card h3 {
+        font-size: 1.4rem;
+        margin-bottom: 12px;
+        color: var(--color-beige);
+      }
+
+      .feature-card p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        margin-bottom: 0;
+      }
+
+      /* SECTION 5: USŁUGI CNC */
+      .section-services {
+        background-color: var(--bg-deep-wood);
+        border-bottom: 1px solid var(--border-oak);
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+        margin-top: 60px;
+      }
+
+      .service-card {
+        background-color: var(--bg-dark-walnut);
+        border: 1px solid var(--border-oak);
+        padding: 40px;
+        border-radius: 0;
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      .service-card:hover {
+        border-color: var(--color-oak);
+        background-color: var(--bg-wood-surface);
+      }
+
+      .service-header {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid var(--border-oak);
+        padding-bottom: 16px;
+      }
+
+      .service-number {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 1.8rem;
+        color: var(--color-oak);
+        font-weight: 300;
+      }
+
+      .service-card h3 {
+        margin-bottom: 0;
+      }
+
+      .service-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .service-list li {
+        position: relative;
+        padding-left: 24px;
+        margin-bottom: 12px;
+        font-size: 0.95rem;
+        color: var(--color-muted);
+      }
+
+      .service-list li::before {
+        content: '◆';
+        position: absolute;
+        left: 0;
+        top: 0;
+        font-size: 8px;
+        color: var(--color-oak);
+      }
+
+      /* SECTION 6: TECHNOLOGY */
+      .section-tech {
+        background-color: var(--bg-deep-wood);
+        border-bottom: 1px solid var(--border-oak);
+        background-image: 
+          radial-gradient(circle at 50% 50%, rgba(59, 41, 28, 0.4) 0%, transparent 70%),
+          linear-gradient(135deg, rgba(184, 138, 82, 0.04) 0%, transparent 100%);
+      }
+
+      .tech-box {
+        background-color: rgba(42, 29, 20, 0.6);
+        border: 1px solid var(--border-oak-strong);
+        padding: 60px 40px;
+        border-radius: 0;
+        max-width: 950px;
+        margin: 40px auto 0;
+      }
+
+      .tech-large-text {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+        color: var(--color-beige);
+        line-height: 1.6;
+        margin-bottom: 40px;
+        font-weight: 300;
+      }
+
+      .tech-badges {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        border-top: 1px solid var(--border-oak);
+        padding-top: 36px;
+      }
+
+      .tech-badge-item {
+        text-align: center;
+      }
+
+      .tech-badge-code {
+        display: inline-block;
+        font-family: 'Inter', sans-serif;
+        font-size: 0.85rem;
+        font-weight: 600;
+        letter-spacing: 0.25em;
+        color: var(--color-oak);
+        text-transform: uppercase;
+        margin-bottom: 8px;
+        padding: 4px 12px;
+        border: 1px solid var(--border-oak);
+      }
+
+      .tech-badge-desc {
+        font-size: 0.85rem;
+        color: var(--color-muted);
+      }
+
+      .region-tags {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 40px;
+      }
+
+      .tag-pill {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--color-beige);
+        background-color: var(--bg-dark-walnut);
+        border: 1px solid var(--border-oak);
+        padding: 6px 16px;
+        white-space: nowrap;
+      }
+
+      /* SECTION 7: CONTACT */
+      .section-contact {
+        background-color: var(--bg-dark-walnut);
+        border-bottom: 1px solid var(--border-oak);
+      }
+
+      .contact-card {
+        background-color: var(--bg-deep-wood);
+        border: 1px solid var(--border-oak-strong);
+        max-width: 700px;
+        margin: 40px auto 0;
+        padding: 60px 40px;
+        text-align: center;
+        border-radius: 0;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      }
+
+      .contact-card h3 {
+        font-size: 2rem;
+        color: var(--color-beige);
+        margin-bottom: 8px;
+      }
+
+      .contact-card .location-sub {
+        color: var(--color-oak);
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        margin-bottom: 24px;
+        display: block;
+      }
+
+      .contact-text {
+        font-size: 1.1rem;
+        color: var(--color-muted);
+        margin-bottom: 32px;
+      }
+
+      /* FOOTER */
+      .footer {
+        background-color: var(--bg-deep-wood);
+        padding: 60px 0 30px;
+        border-top: 1px solid var(--border-oak);
+        text-align: center;
+      }
+
+      .footer-logo {
+        width: 44px;
+        height: 44px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 1px solid var(--color-oak);
+        margin-bottom: 16px;
+      }
+
+      .footer-brand {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 1.4rem;
+        color: var(--color-beige);
+        letter-spacing: 0.1em;
+        margin-bottom: 6px;
+      }
+
+      .footer-slogan {
+        font-family: 'Cormorant Garamond', serif;
+        font-style: italic;
+        color: var(--color-oak);
+        font-size: 1.05rem;
+        margin-bottom: 24px;
+      }
+
+      .footer-social {
+        margin-bottom: 30px;
+      }
+
+      .footer-social-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--color-beige);
+        text-decoration: none;
+        font-size: 0.9rem;
+        border: 1px solid var(--border-oak);
+        padding: 8px 20px;
+        transition: all 0.3s ease;
+      }
+
+      .footer-social-link:hover {
+        background-color: var(--color-oak);
+        color: var(--bg-deep-wood);
+      }
+
+      .copyright {
+        font-size: 0.8rem;
+        color: rgba(168, 154, 135, 0.6);
+        border-top: 1px solid rgba(184, 138, 82, 0.15);
+        padding-top: 24px;
+        margin-top: 24px;
+      }
+
+      /* RESPONSIVE MEDIA QUERIES */
+      @media (max-width: 1024px) {
+        .about-grid {
+          grid-template-columns: repeat(3, 1fr);
+          gap: 16px;
+        }
+        .services-grid {
+          gap: 20px;
+        }
+      }
+
+      @media (max-width: 900px) {
+        .hamburger-btn {
+          display: flex;
+        }
+
+        .nav-menu {
+          position: absolute;
+          top: 80px;
+          left: 0;
+          right: 0;
+          background-color: rgba(23, 18, 13, 0.98);
+          border-bottom: 1px solid var(--border-oak);
+          flex-direction: column;
+          align-items: center;
+          padding: 0;
+          gap: 0;
+          max-height: 0;
+          overflow: hidden;
+          opacity: 0;
+          transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.3s ease;
+        }
+
+        .nav-item {
+          padding: 14px 0;
+          width: 100%;
+          text-align: center;
+          border-bottom: 1px solid rgba(184, 138, 82, 0.1);
+        }
+
+        .nav-cta {
+          margin: 16px 0 24px 0;
+          width: 80%;
+        }
+
+        .nav-toggle:checked ~ .nav-menu {
+          max-height: 400px;
+          opacity: 1;
+        }
+
+        .nav-toggle:checked ~ .hamburger-btn span:nth-child(1) {
+          transform: translateY(9px) rotate(45deg);
+        }
+
+        .nav-toggle:checked ~ .hamburger-btn span:nth-child(2) {
+          opacity: 0;
+        }
+
+        .nav-toggle:checked ~ .hamburger-btn span:nth-child(3) {
+          transform: translateY(-9px) rotate(-45deg);
+        }
+
+        .about-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .tech-badges {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .hero-section {
+          padding: 80px 16px;
+        }
+
+        .btn {
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .contact-card, .tech-box, .service-card, .feature-card {
+          padding: 30px 20px;
+        }
+
+        .brand-name {
+          font-size: 1rem;
+          letter-spacing: 0.08em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- NAVIGATION -->
+    <header class="navbar">
+      <div class="nav-container">
+        <a href="#" class="brand-link">
+          <img src="/logo.jpg" alt="Manufaktura Drewna Logo" class="brand-logo" width="38" height="38" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='https://i.postimg.cc/wBnf9mF6/725860890-122110777725345430-1406477013983970049-n.jpg';" />
+          <span class="brand-name">MANUFAKTURA DREWNA</span>
+        </a>
+
+        <!-- Pure CSS Hamburger Toggle -->
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+        <label for="nav-toggle" class="hamburger-btn" aria-label="Otwórz menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+
+        <nav class="nav-menu">
+          <a href="#about" class="nav-item">O nas</a>
+          <a href="#services" class="nav-item">Usługi CNC</a>
+          <a href="#tech" class="nav-item">Precyzja & Technologia</a>
+          <a href="#contact" class="nav-item">Kontakt</a>
+          <a href="https://www.facebook.com/profile.php?id=61590362926617" target="_blank" rel="noopener" class="btn btn-oak-outline nav-cta">Zapytaj o realizację</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="hero-content">
+        <span class="section-label">LOKALNA PRACOWNIA STOLARSKA</span>
+        
+        <div class="wood-divider">
+          <span></span>
+          ◆
+          <span></span>
+        </div>
+
+        <h1>Manufaktura Drewna <span class="gold-text">& Usługi CNC</span></h1>
+        
+        <p class="hero-subtitle">Połączenie pasji, rzemiosła i precyzji technologii CNC.</p>
+        
+        <p class="hero-description">
+          Projektujemy i wykonujemy elementy drewniane z wykorzystaniem nowoczesnych technologii CNC — od modelu 3D po gotowy produkt.
+        </p>
+
+        <div class="btn-group">
+          <a href="https://www.facebook.com/profile.php?id=61590362926617" target="_blank" rel="noopener" class="btn btn-oak-filled btn-large">
+            Skontaktuj się
+          </a>
+          <a href="#services" class="btn btn-oak-outline btn-large">
+            Poznaj nasze usługi
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: O NAS -->
+    <section class="section-about" id="about">
+      <div class="container">
+        <div class="text-center" style="max-width: 800px; margin: 0 auto;">
+          <span class="section-label">O NAS</span>
+          <h2>Rzemiosło spotyka technologię</h2>
+          
+          <div class="wood-divider">
+            <span></span>
+            ◆
+            <span></span>
+          </div>
+
+          <p style="font-size: 1.1rem; color: var(--color-beige); margin-bottom: 12px;">
+            Manufaktura Drewna & Usługi CNC to lokalna pracownia stolarska, która łączy tradycyjne podejście do drewna z nowoczesną technologią obróbki CNC.
+          </p>
+          <p>
+            Realizujemy indywidualne projekty oraz zamówienia dla firm z regionu i Trójmiasta.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <!-- CARD 1 -->
+          <div class="feature-card">
+            <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+              <line x1="12" y1="22.08" x2="12" y2="12"/>
+            </svg>
+            <h3>Projektowanie 3D</h3>
+            <p>Przygotowanie dokładnych modeli przed rozpoczęciem realizacji.</p>
+          </div>
+
+          <!-- CARD 2 -->
+          <div class="feature-card">
+            <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9"/>
+              <line x1="12" y1="3" x2="12" y2="21"/>
+              <line x1="3" y1="12" x2="21" y2="12"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+            <h3>Precyzja CNC</h3>
+            <p>Nowoczesna obróbka zapewniająca dokładność i powtarzalność.</p>
+          </div>
+
+          <!-- CARD 3 -->
+          <div class="feature-card">
+            <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+            <h3>Indywidualne projekty</h3>
+            <p>Elementy dopasowane do konkretnych potrzeb klienta.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: USŁUGI CNC -->
+    <section class="section-services" id="services">
+      <div class="container">
+        <div class="text-center">
+          <span class="section-label">OFERTA</span>
+          <h2>Od pomysłu do gotowego elementu</h2>
+          
+          <div class="wood-divider">
+            <span></span>
+            ◆
+            <span></span>
+          </div>
+        </div>
+
+        <div class="services-grid">
+          <!-- SERVICE 1 -->
+          <div class="service-card">
+            <div class="service-header">
+              <span class="service-number">01</span>
+              <h3>Projektowanie 3D</h3>
+            </div>
+            <ul class="service-list">
+              <li>przygotowanie modeli</li>
+              <li>wizualizacja projektu</li>
+              <li>optymalizacja wykonania</li>
+            </ul>
+          </div>
+
+          <!-- SERVICE 2 -->
+          <div class="service-card">
+            <div class="service-header">
+              <span class="service-number">02</span>
+              <h3>Frezowanie CNC</h3>
+            </div>
+            <ul class="service-list">
+              <li>precyzyjna obróbka drewna</li>
+              <li>elementy jednostkowe</li>
+              <li>produkcja seryjna</li>
+            </ul>
+          </div>
+
+          <!-- SERVICE 3 -->
+          <div class="service-card">
+            <div class="service-header">
+              <span class="service-number">03</span>
+              <h3>Realizacje dla firm</h3>
+            </div>
+            <ul class="service-list">
+              <li>współpraca B2B</li>
+              <li>elementy reklamowe</li>
+              <li>komponenty produkcyjne</li>
+            </ul>
+          </div>
+
+          <!-- SERVICE 4 -->
+          <div class="service-card">
+            <div class="service-header">
+              <span class="service-number">04</span>
+              <h3>Zamówienia indywidualne</h3>
+            </div>
+            <ul class="service-list">
+              <li>projekty klientów</li>
+              <li>nietypowe realizacje</li>
+              <li>pełne doradztwo</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: TECHNOLOGY & PRECISION -->
+    <section class="section-tech" id="tech">
+      <div class="container text-center">
+        <span class="section-label">TECHNOLOGIA I JAKOŚĆ</span>
+        <h2>Precyzja, której możesz zaufać</h2>
+        
+        <div class="wood-divider">
+          <span></span>
+          ◆
+          <span></span>
+        </div>
+
+        <div class="tech-box">
+          <p class="tech-large-text">
+            „Każdy projekt zaczyna się od dokładnego planu. Dzięki technologii CNC możemy tworzyć elementy o wysokiej dokładności zachowując naturalne piękno drewna.”
+          </p>
+
+          <div class="tech-badges">
+            <div class="tech-badge-item">
+              <span class="tech-badge-code">3D DESIGN</span>
+              <p class="tech-badge-desc">Cyfrowe modelowanie CAD/CAM</p>
+            </div>
+            <div class="tech-badge-item">
+              <span class="tech-badge-code">CNC PRECISION</span>
+              <p class="tech-badge-desc">Mikrometryczna powtarzalność</p>
+            </div>
+            <div class="tech-badge-item">
+              <span class="tech-badge-code">WOODCRAFT</span>
+              <p class="tech-badge-desc">Rzemieślnicze wykończenie</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="region-tags">
+          <span class="tag-pill">Lokalna pracownia stolarska</span>
+          <span class="tag-pill">Trójmiasto i okolice</span>
+          <span class="tag-pill">Obsługa firm i klientów prywatnych</span>
+          <span class="tag-pill">Indywidualne zamówienia</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: CONTACT -->
+    <section class="section-contact" id="contact">
+      <div class="container">
+        <div class="text-center">
+          <span class="section-label">KONTAKT</span>
+          <h2>Stwórzmy coś razem</h2>
+          
+          <div class="wood-divider">
+            <span></span>
+            ◆
+            <span></span>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <h3>Manufaktura Drewna & Usługi CNC</h3>
+          <span class="location-sub">Trójmiasto i okolice</span>
+          
+          <p class="contact-text">Napisz do nas i opowiedz o swoim projekcie.</p>
+          
+          <a href="https://www.facebook.com/profile.php?id=61590362926617" target="_blank" rel="noopener" class="btn btn-oak-filled btn-large">
+            Facebook →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <img src="/logo.jpg" alt="Manufaktura Drewna Logo" class="footer-logo" width="44" height="44" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='https://i.postimg.cc/wBnf9mF6/725860890-122110777725345430-1406477013983970049-n.jpg';" />
+        
+        <div class="footer-brand">Manufaktura Drewna & Usługi CNC</div>
+        <p class="footer-slogan">Połączenie pasji i rzemiosła.</p>
+        
+        <div class="footer-social">
+          <a href="https://www.facebook.com/profile.php?id=61590362926617" target="_blank" rel="noopener" class="footer-social-link">
+            <span>Odwiedź nasz profil na Facebooku</span>
+            <span>→</span>
+          </a>
+        </div>
+
+        <div class="copyright">
+          &copy; 2026 Manufaktura Drewna & Usługi CNC. Wszystkie prawa zastrzeżone. | Trójmiasto i okolice
+        </div>
+      </div>
+    </footer>
+
+  </body>
+</html>
